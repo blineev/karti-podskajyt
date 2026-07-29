@@ -1,12 +1,9 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-.page {
-  min-inline-size: 360px;
-  margin: 0;
+:root {
+  --main-font: Raleway;
+  --accent-font: 'STIX Two Text';
+  --bg-color: #F3EFEC;
+  --text-color: #312A4E;
+  --accent-color: #FFAB6B;
 }
 
 p,
@@ -19,4 +16,117 @@ ol,
 li,
 figure {
   margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.page {
+  min-inline-size: 360px;
+  margin: 0;
+  color: var(--text-color, #312A4E);
+  font-family: var(--main-font, sans-serif);
+  background-color: var(--bg-color, #F3EFEC);
+}
+
+.heading {
+  font-family: var(--accent-font, serif);
+  font-weight: 600;
+  line-height: 0.9;
+  text-align: center;
+}
+
+.header {
+  padding-block-start: 10%;
+}
+
+.header__title {
+  margin-block-end: 40px;
+  font-size: clamp(3.75rem, 2.5rem + 5.5556vw, 7.5rem);
+}
+
+.content__title {
+  margin: 7% 0 2.5%;
+  font-size: 30px;
+}
+
+.content__text-block {
+  font-size: 18px;
+}
+
+.content__text-block .content__paragraph:not(:last-of-type) {
+  margin-block-end: 1.5em;
+}
+
+.content__paragraph a {
+  color: inherit;
+}
+
+.content__blockquote {
+  inline-size: 75%;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 2;
+  margin: 0 auto 1.5em;
+}
+
+.content__list {
+  padding: 0 0 0 40px;
+  list-style: none;
+}
+
+.content__list li {
+  position: relative;
+}
+
+.content__list li:not(:last-of-type) {
+  margin-block-end: 10px;
+}
+
+.content__list li::before {
+  content: '';
+  position: absolute;
+  inline-size: 15px;
+  block-size: 15px;
+  background-image: url(../images/marker-light.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-block-start: -7.5px;
+  inset-block-start: 50%;
+  inset-inline-start: -25px;
+}
+
+.content__text-block_type_first-lettered .content__paragraph:first-of-type::first-letter {
+  display: inline-block;
+  padding: 0 4px;
+  margin-inline-end: 1px;
+  background-color: var(--accent-color, #FFAB6B);
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.content__figure {
+  position: relative;
+  margin: 7% auto;
+  inline-size: calc(100% + 10vi);
+  inset-inline-end: 5vi;
+}
+
+.content__picture {
+  inline-size: 100%;
+}
+
+.content__picture-caption {
+  border-block-end: 1px solid currentColor;
+  padding: 20px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.content-section {
+  padding: 5vi;
 }
